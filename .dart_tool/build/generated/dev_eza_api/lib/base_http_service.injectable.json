@@ -1,0 +1,1 @@
+[{"type":{"import":"package:dev_eza_api/base_http_service.dart","name":"BaseHttpService","isNullable":false},"typeImpl":{"import":"package:dev_eza_api/base_http_service.dart","name":"BaseHttpService","isNullable":false},"isAsync":false,"preResolve":false,"injectableType":1,"dependsOn":[],"environments":[],"dependencies":[],"constructorName":""}]

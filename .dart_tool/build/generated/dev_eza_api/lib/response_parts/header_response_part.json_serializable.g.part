@@ -1,0 +1,13 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+HeaderResponsePart _$HeaderResponsePartFromJson(Map<String, dynamic> json) =>
+    HeaderResponsePart(
+      (json['duration'] as num?)?.toDouble(),
+    );
+
+Map<String, dynamic> _$HeaderResponsePartToJson(HeaderResponsePart instance) =>
+    <String, dynamic>{
+      'duration': instance.duration,
+    };
