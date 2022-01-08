@@ -8,6 +8,7 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
 import 'base_http_service.dart' as _i4;
+import 'endpoints/authentication_endpoints.dart' as _i5;
 import 'endpoints/session_endpoints.dart'
     as _i3; // ignore_for_file: unnecessary_lambdas
 
@@ -18,6 +19,8 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   final gh = _i2.GetItHelper(get, environment, environmentFilter);
   gh.factory<_i3.SessionEndpoints>(
       () => _i3.SessionEndpoints(get<_i4.BaseHttpService>()));
+  gh.factory<_i5.AuthenticationEndpoints>(
+      () => _i5.AuthenticationEndpoints(get<_i4.BaseHttpService>()));
   gh.singleton<_i4.BaseHttpService>(_i4.BaseHttpService());
   return get;
 }
