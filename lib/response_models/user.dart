@@ -8,16 +8,16 @@ class User {
   String? guid;
 
   @JsonKey(name: 'SystemPermissions')
-  int systemPermissions;
+  int? systemPermissions;
 
   @JsonKey(name: 'Email')
   String? email;
 
   @JsonKey(name: 'SessionDateCreated')
-  int sessionDateCreated;
+  int? sessionDateCreated;
 
   @JsonKey(name: 'SessionDateModified')
-  int sessionDateModified;
+  int? sessionDateModified;
 
   @JsonKey(name: 'FullName')
   String? fullName;

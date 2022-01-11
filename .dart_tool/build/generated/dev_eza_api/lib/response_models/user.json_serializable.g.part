@@ -4,10 +4,10 @@
 
 User _$UserFromJson(Map<String, dynamic> json) => User(
       json['Guid'] as String?,
-      json['SystemPermissions'] as int,
+      json['SystemPermissions'] as int?,
       json['Email'] as String?,
-      json['SessionDateCreated'] as int,
-      json['SessionDateModified'] as int,
+      json['SessionDateCreated'] as int?,
+      json['SessionDateModified'] as int?,
       json['FullName'] as String?,
     );
 
