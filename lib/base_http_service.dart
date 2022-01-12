@@ -12,6 +12,10 @@ class BaseHttpService {
   Dio get dio => _dio;
 
   BaseHttpService(){
+    init();
+  }
+
+  void init() {
     _dio = Dio();
     _dio.options.baseUrl = "https://dev-eza.api.ffw.io/v6/";
   }
@@ -19,7 +23,7 @@ class BaseHttpService {
   Future<Map<String, dynamic>> getFetch(String endpoint, Map<String, String> query, bool requiresAuthed) async {
     if(requiresAuthed) {
       if(session == null) {
-        throw Exception("doesnt exist");
+        throw Exception("Session doesn't exist");
       } else {
         query.addAll({'sessionGUID' : session!.guid});
       }
@@ -52,8 +56,7 @@ class BaseHttpService {
           data: formData,
         );
       } on DioError catch(e) {
-        print(e.response);
-        throw Exception('Something went wrong and late variable response has not been initialized');
+        throw Exception('Something went wrong and late variable response has not been initialized' + e.response.toString());
       }
 
 
