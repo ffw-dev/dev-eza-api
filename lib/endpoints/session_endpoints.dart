@@ -7,7 +7,6 @@ import '../response_parts/base_response.dart';
 
 @Injectable()
 class SessionEndpoints {
-
   SessionEndpoints(BaseHttpService baseFetch);
 
   Future<BaseResponse<Session>> createSessionGet() async {
@@ -19,4 +18,3 @@ class SessionEndpoints {
     return baseResponse;
   }
 }
-

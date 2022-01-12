@@ -10,5 +10,6 @@ class EzFileCreateResponse {
   EzFileCreateResponse({this.identifier});
 
   factory EzFileCreateResponse.fromJson(Map<String, dynamic> json) => _$EzFileCreateResponseFromJson(json);
+
   Map<String, dynamic> toJson() => _$EzFileCreateResponseToJson(this);
 }

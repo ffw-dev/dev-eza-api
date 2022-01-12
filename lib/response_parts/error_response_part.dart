@@ -11,5 +11,6 @@ class ErrorResponsePart {
   ErrorResponsePart(this.fullName, this.code, this.message);
 
   factory ErrorResponsePart.fromJson(Map<String, dynamic> json) => _$ErrorResponsePartFromJson(json);
+
   Map<String, dynamic> toJson() => _$ErrorResponsePartToJson(this);
 }

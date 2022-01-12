@@ -13,7 +13,7 @@ class EzLabelAdditionalProps {
 
   EzLabelAdditionalProps({this.additionalProp1, this.additionalProp2, this.additionalProp3});
 
-
   factory EzLabelAdditionalProps.fromJson(Map<String, dynamic> json) => _$EzLabelAdditionalPropsFromJson(json);
+
   Map<String, dynamic> toJson() => _$EzLabelAdditionalPropsToJson(this);
 }

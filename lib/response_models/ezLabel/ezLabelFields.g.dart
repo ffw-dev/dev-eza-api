@@ -6,8 +6,7 @@ part of 'ezLabelFields.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-EzLabelFields _$EzLabelFieldsFromJson(Map<String, dynamic> json) =>
-    EzLabelFields(
+EzLabelFields _$EzLabelFieldsFromJson(Map<String, dynamic> json) => EzLabelFields(
       identifier: json['Identifier'] as String?,
       name: json['Name'] as String?,
       type: json['Type'] as String?,
@@ -16,8 +15,7 @@ EzLabelFields _$EzLabelFieldsFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$EzLabelFieldsToJson(EzLabelFields instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$EzLabelFieldsToJson(EzLabelFields instance) => <String, dynamic>{
       'Identifier': instance.identifier,
       'Name': instance.name,
       'Type': instance.type,

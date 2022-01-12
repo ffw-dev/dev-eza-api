@@ -6,12 +6,10 @@ part of 'header_response_part.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-HeaderResponsePart _$HeaderResponsePartFromJson(Map<String, dynamic> json) =>
-    HeaderResponsePart(
+HeaderResponsePart _$HeaderResponsePartFromJson(Map<String, dynamic> json) => HeaderResponsePart(
       (json['duration'] as num?)?.toDouble(),
     );
 
-Map<String, dynamic> _$HeaderResponsePartToJson(HeaderResponsePart instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$HeaderResponsePartToJson(HeaderResponsePart instance) => <String, dynamic>{
       'duration': instance.duration,
     };

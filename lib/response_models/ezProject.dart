@@ -1,6 +1,5 @@
 import 'package:dev_eza_api/response_models/ezLabel/ezLabel.dart';
 import 'package:dev_eza_api/response_models/user.dart';
-
 import 'package:json_annotation/json_annotation.dart';
 
 part 'ezProject.g.dart';
@@ -18,9 +17,9 @@ class EzProject {
   @JsonKey(name: 'FullName')
   String? fullName;
 
-  EzProject(
-      {this.identifier, this.name, this.users, this.labels, this.fullName});
+  EzProject({this.identifier, this.name, this.users, this.labels, this.fullName});
 
   factory EzProject.fromJson(Map<String, dynamic> json) => _$EzProjectFromJson(json);
+
   Map<String, dynamic> toJson() => _$EzProjectToJson(this);
 }

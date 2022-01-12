@@ -14,5 +14,6 @@ class EzLabel {
   EzLabel({this.identifier, this.name, this.fullName});
 
   factory EzLabel.fromJson(Map<String, dynamic> json) => _$EzLabelFromJson(json);
+
   Map<String, dynamic> toJson() => _$EzLabelToJson(this);
 }

@@ -6,14 +6,10 @@ part of 'ezFileCreateResponse.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-EzFileCreateResponse _$EzFileCreateResponseFromJson(
-        Map<String, dynamic> json) =>
-    EzFileCreateResponse(
+EzFileCreateResponse _$EzFileCreateResponseFromJson(Map<String, dynamic> json) => EzFileCreateResponse(
       identifier: json['Identifier'] as String?,
     );
 
-Map<String, dynamic> _$EzFileCreateResponseToJson(
-        EzFileCreateResponse instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$EzFileCreateResponseToJson(EzFileCreateResponse instance) => <String, dynamic>{
       'Identifier': instance.identifier,
     };

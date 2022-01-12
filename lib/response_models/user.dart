@@ -22,13 +22,9 @@ class User {
   @JsonKey(name: 'FullName')
   String? fullName;
 
-  User(this.guid,
-        this.systemPermissions,
-        this.email,
-        this.sessionDateCreated,
-        this.sessionDateModified,
-        this.fullName);
+  User(this.guid, this.systemPermissions, this.email, this.sessionDateCreated, this.sessionDateModified, this.fullName);
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+
   Map<String, dynamic> toJson() => _$UserToJson(this);
 }

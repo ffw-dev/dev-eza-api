@@ -1,4 +1,3 @@
-
 import 'package:dev_eza_api/response_models/ezLabel/ezLabelData.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -16,5 +15,6 @@ class EzAnnotations {
   EzAnnotations({this.definitionId, this.name, this.data});
 
   factory EzAnnotations.fromJson(Map<String, dynamic> json) => _$EzAnnotationsFromJson(json);
+
   Map<String, dynamic> toJson() => _$EzAnnotationsToJson(this);
 }

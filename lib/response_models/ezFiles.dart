@@ -17,5 +17,6 @@ class EzFiles {
   EzFiles({this.identifier, this.name, this.type, this.destinations});
 
   factory EzFiles.fromJson(Map<String, dynamic> json) => _$EzFilesFromJson(json);
+
   Map<String, dynamic> toJson() => _$EzFilesToJson(this);
 }

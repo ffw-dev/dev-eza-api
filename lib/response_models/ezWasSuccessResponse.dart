@@ -12,5 +12,6 @@ class EzWasSuccessResponse {
   EzWasSuccessResponse({this.wasSuccess, this.fullName});
 
   factory EzWasSuccessResponse.fromJson(Map<String, dynamic> json) => _$EzWasSuccessResponseFromJson(json);
+
   Map<String, dynamic> toJson() => _$EzWasSuccessResponseToJson(this);
 }

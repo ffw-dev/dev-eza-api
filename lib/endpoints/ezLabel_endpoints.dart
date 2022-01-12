@@ -1,7 +1,6 @@
+import 'package:dev_eza_api/response_models/ezLabel/ezLabel.dart';
 import 'package:dev_eza_api/response_models/ezLabel/ezLabelAssociateWith.dart';
 import 'package:dio/dio.dart';
-
-import 'package:dev_eza_api/response_models/ezLabel/ezLabel.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../main.dart';
@@ -10,7 +9,6 @@ import '../response_parts/base_response.dart';
 
 @Injectable()
 class EzLabelEndpoints {
-
   EzLabelEndpoints(BaseHttpService baseFetch);
 
   Future<BaseResponse<EzLabel>> setPost(FormData formData) async {
@@ -22,7 +20,8 @@ class EzLabelEndpoints {
 
   Future<BaseResponse<EzLabelAssociateWithResponse>> associateWithPost(FormData formData) async {
     var response = await getIt<BaseHttpService>().postFetch("EzLabel/AssociateWith", formData, true);
-    var baseResponse = BaseResponse.fromApi<EzLabelAssociateWithResponse>(response, (response) => EzLabelAssociateWithResponse.fromJson(response));
+    var baseResponse = BaseResponse.fromApi<EzLabelAssociateWithResponse>(
+        response, (response) => EzLabelAssociateWithResponse.fromJson(response));
 
     return baseResponse;
   }

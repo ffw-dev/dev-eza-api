@@ -2,7 +2,6 @@ import 'package:dev_eza_api/response_models/session.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
-
 @Singleton()
 @Injectable()
 class BaseHttpService {
@@ -11,7 +10,7 @@ class BaseHttpService {
 
   Dio get dio => _dio;
 
-  BaseHttpService(){
+  BaseHttpService() {
     init();
   }
 
@@ -21,16 +20,16 @@ class BaseHttpService {
   }
 
   Future<Map<String, dynamic>> getFetch(String endpoint, Map<String, String> query, bool requiresAuthed) async {
-    if(requiresAuthed) {
-      if(session == null) {
+    if (requiresAuthed) {
+      if (session == null) {
         throw Exception("Session doesn't exist");
       } else {
-        query.addAll({'sessionGUID' : session!.guid});
+        query.addAll({'sessionGUID': session!.guid});
       }
     }
 
     return _dio.get(createURL(endpoint), queryParameters: query).then((response) {
-      if(response.statusCode != 200) {
+      if (response.statusCode != 200) {
         throw Exception("Something went wrong at getFetch()");
       }
       return response.data as Map<String, dynamic>;
@@ -38,40 +37,39 @@ class BaseHttpService {
   }
 
   Future<Map<String, dynamic>> postFetch(String endpoint, FormData formData, bool requiresAuthed) async {
-      if(requiresAuthed) {
-        /** Application throws exception but does not print it nor stops the application, just gets stuck **/
-        try {
-          formData = addSessionOrThrow(formData);
-        } catch (e) {
-          print(e);
-          return {};
-        }
-      }
-
-      late Response<dynamic> response;
-
+    if (requiresAuthed) {
+      /** Application throws exception but does not print it nor stops the application, just gets stuck **/
       try {
-        response = await _dio.post(
-          createURL(endpoint),
-          data: formData,
-        );
-      } on DioError catch(e) {
-        throw Exception('Something went wrong and late variable response has not been initialized' + e.response.toString());
+        formData = addSessionOrThrow(formData);
+      } catch (e) {
+        print(e);
+        return {};
       }
+    }
 
+    late Response<dynamic> response;
 
-      if(response.statusCode != 200) {
-        throw Exception('Something went wrong status:' + response.statusCode.toString());
-      }
+    try {
+      response = await _dio.post(
+        createURL(endpoint),
+        data: formData,
+      );
+    } on DioError catch (e) {
+      throw Exception(
+          'Something went wrong and late variable response has not been initialized' + e.response.toString());
+    }
 
-      var data = response.data;
+    if (response.statusCode != 200) {
+      throw Exception('Something went wrong status:' + response.statusCode.toString());
+    }
 
-      return Future.value(data);
+    var data = response.data;
+
+    return Future.value(data);
   }
 
   FormData addSessionOrThrow(FormData formData) {
-
-    if(session == null) {
+    if (session == null) {
       throw Exception("Session does not exist.");
     }
 
@@ -83,5 +81,4 @@ class BaseHttpService {
   String createURL(String endpoint) {
     return _dio.options.baseUrl + endpoint;
   }
-
 }

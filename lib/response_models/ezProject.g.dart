@@ -9,12 +9,8 @@ part of 'ezProject.dart';
 EzProject _$EzProjectFromJson(Map<String, dynamic> json) => EzProject(
       identifier: json['Identifier'] as String?,
       name: json['Name'] as String?,
-      users: (json['Users'] as List<dynamic>?)
-          ?.map((e) => User.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      labels: (json['Labels'] as List<dynamic>?)
-          ?.map((e) => EzLabel.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      users: (json['Users'] as List<dynamic>?)?.map((e) => User.fromJson(e as Map<String, dynamic>)).toList(),
+      labels: (json['Labels'] as List<dynamic>?)?.map((e) => EzLabel.fromJson(e as Map<String, dynamic>)).toList(),
       fullName: json['FullName'] as String?,
     );
 

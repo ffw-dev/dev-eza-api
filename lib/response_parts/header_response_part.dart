@@ -9,5 +9,6 @@ class HeaderResponsePart {
   HeaderResponsePart(this.duration);
 
   factory HeaderResponsePart.fromJson(Map<String, dynamic> json) => _$HeaderResponsePartFromJson(json);
+
   Map<String, dynamic> toJson() => _$HeaderResponsePartToJson(this);
 }

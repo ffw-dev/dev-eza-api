@@ -15,6 +15,8 @@ class BodyResponsePart<T> {
 
   BodyResponsePart(this.count, this.totalCount, this.results);
 
-  factory BodyResponsePart.fromJson(Map<String, dynamic> json, T Function(Object? json) fromJsonT) => _$BodyResponsePartFromJson(json, fromJsonT);
+  factory BodyResponsePart.fromJson(Map<String, dynamic> json, T Function(Object? json) fromJsonT) =>
+      _$BodyResponsePartFromJson(json, fromJsonT);
+
   Map<String, dynamic> toJson() => _$BodyResponsePartToJson(this, (value) => value.runtimeType);
 }

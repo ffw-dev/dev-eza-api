@@ -12,5 +12,6 @@ class EzDestinations {
   EzDestinations({this.type, this.url});
 
   factory EzDestinations.fromJson(Map<String, dynamic> json) => _$EzDestinationsFromJson(json);
+
   Map<String, dynamic> toJson() => _$EzDestinationsToJson(this);
 }

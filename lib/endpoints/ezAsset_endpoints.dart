@@ -1,7 +1,6 @@
 import 'package:dev_eza_api/response_models/ezAsset.dart';
 import 'package:dev_eza_api/response_models/ezWasSuccessResponse.dart';
 import 'package:dio/dio.dart';
-
 import 'package:injectable/injectable.dart';
 
 import '../../main.dart';

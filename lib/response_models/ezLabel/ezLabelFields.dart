@@ -17,5 +17,6 @@ class EzLabelFields {
   EzLabelFields({this.identifier, this.name, this.type, this.destinations});
 
   factory EzLabelFields.fromJson(Map<String, dynamic> json) => _$EzLabelFieldsFromJson(json);
+
   Map<String, dynamic> toJson() => _$EzLabelFieldsToJson(this);
 }

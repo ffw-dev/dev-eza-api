@@ -12,8 +12,7 @@ SecureCookie _$SecureCookieFromJson(Map<String, dynamic> json) => SecureCookie(
       json['PasswordGuid'] as String,
     );
 
-Map<String, dynamic> _$SecureCookieToJson(SecureCookie instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$SecureCookieToJson(SecureCookie instance) => <String, dynamic>{
       'Guid': instance.guid,
       'PasswordGuid': instance.passwordGuid,
       'FullName': instance.fullName,
