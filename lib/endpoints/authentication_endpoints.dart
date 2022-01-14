@@ -11,7 +11,12 @@ import '../base_http_service.dart';
 class AuthenticationEndpoints {
   AuthenticationEndpoints(BaseHttpService baseFetch);
 
-  Future<BaseResponse<User>> emailPasswordPost(FormData formData) async {
+  Future<BaseResponse<User>> emailPasswordPost(String email, String password) async {
+    FormData formData = FormData.fromMap({
+      "email": email,
+      "password": password,
+    });
+
     var response =
         await getIt<BaseHttpService>().postFetch("EmailPassword/Login", formData, true).then((value) => value);
     var data = response;
@@ -19,7 +24,9 @@ class AuthenticationEndpoints {
     return BaseResponse.fromApi<User>(data, (data) => User.fromJson(data));
   }
 
-  Future<BaseResponse<SecureCookie>?>? secureCookieLogin(FormData formData) async {
+  Future<BaseResponse<SecureCookie>?>? secureCookieLogin(String guid, String password) async {
+    var formData = FormData.fromMap({'guid': guid, 'passwordGuid': password});
+
     var response =
         await getIt<BaseHttpService>().postFetch("SecureCookie/Login", formData, true).then((value) => value);
     if (response.isEmpty) {
