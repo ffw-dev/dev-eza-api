@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'secure_cookie.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class SecureCookie implements SerializableModel {
+class SecureCookie extends SerializableModel {
   @JsonKey(name: 'Guid')
   String guid;
 
