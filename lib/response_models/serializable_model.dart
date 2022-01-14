@@ -1,3 +1,3 @@
-abstract class SerializableModel<T> {
-  T fromJson(Map<String, dynamic> json);
+abstract class SerializableModel {
+  T fromJson<T>(Map<String, dynamic> json);
 }

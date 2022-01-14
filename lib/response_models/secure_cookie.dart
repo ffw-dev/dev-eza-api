@@ -21,5 +21,5 @@ class SecureCookie extends SerializableModel {
   Map<String, dynamic> toJson() => _$SecureCookieToJson(this);
 
   @override
-  fromJson(Map<String, dynamic> json) => SecureCookie.fromJson(json);
+  fromJson<SecureCookie>(Map<String, dynamic> json) => this.fromJson(json);
 }
