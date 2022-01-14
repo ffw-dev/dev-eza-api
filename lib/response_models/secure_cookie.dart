@@ -1,10 +1,9 @@
-import 'package:dev_eza_api/response_models/serializable_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'secure_cookie.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class SecureCookie implements SerializableModel {
+class SecureCookie {
   @JsonKey(name: 'Guid')
   String guid;
 

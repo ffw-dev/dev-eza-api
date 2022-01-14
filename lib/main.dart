@@ -27,7 +27,6 @@ export 'response_models/ezLabel/ezLabelFields.dart';
 export 'response_models/user.dart';
 export 'response_models/secure_cookie.dart';
 export 'response_models/session.dart';
-export 'response_models/serializable_model.dart';
 
 final getIt = GetIt.instance;
 
