@@ -1,9 +1,10 @@
+import 'package:dev_eza_api/response_models/serializable_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'secure_cookie.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class SecureCookie {
+class SecureCookie implements SerializableModel {
   @JsonKey(name: 'Guid')
   String guid;
 
@@ -18,4 +19,7 @@ class SecureCookie {
   factory SecureCookie.fromJson(Map<String, dynamic> json) => _$SecureCookieFromJson(json);
 
   Map<String, dynamic> toJson() => _$SecureCookieToJson(this);
+
+  @override
+  fromJson(Map<String, dynamic> json) => SecureCookie.fromJson(json);
 }
