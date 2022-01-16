@@ -19,7 +19,7 @@ class EzAssetEndpoints {
   }
 
   Future<BaseResponse<EzAsset>> setSet(FormData formData) async {
-    var response = await getIt<BaseHttpService>().postFetch("EzAsset/Set", formData, true);
+    var response = await getIt<BaseHttpService>().postFetch("EzAsset/Set", formData, false);
     var baseResponse = BaseResponse.fromApi<EzAsset>(response, (response) => EzAsset.fromJson(response));
 
     return baseResponse;
