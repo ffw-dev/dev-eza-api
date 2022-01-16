@@ -50,7 +50,8 @@ class BaseHttpService {
     }
 
     late Response<dynamic> response;
-    formData.files.forEach((element) {print(element.key);});
+    formData.fields.forEach((element) {print(element.key);});
+
     try {
       response = await _dio.post(
         createURL(endpoint),
