@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:dev_eza_api/response_models/session.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
@@ -48,7 +50,7 @@ class BaseHttpService {
     }
 
     late Response<dynamic> response;
-
+    formData.files.forEach((element) {print(element.key);});
     try {
       response = await _dio.post(
         createURL(endpoint),
