@@ -78,7 +78,7 @@ class BaseHttpService {
       throw Exception("Session does not exist.");
     }
 
-    formData.fields.add(MapEntry('SessionGUID', session!.guid));
+    formData.fields.add(MapEntry('sessionGUID', session!.guid));
 
     return formData;
   }
