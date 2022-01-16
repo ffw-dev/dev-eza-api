@@ -50,7 +50,6 @@ class BaseHttpService {
     }
 
     late Response<dynamic> response;
-    formData.fields.forEach((element) {print(element.key);});
 
     try {
       response = await _dio.post(
