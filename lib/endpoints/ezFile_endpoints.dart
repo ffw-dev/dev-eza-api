@@ -36,9 +36,7 @@ class EzFileEndpoints {
   }
 
   Future<BaseResponse<EzWasSuccessResponse>> uploadPost(FormData formData) async {
-    print('uploadPost');
     var response = await getIt<BaseHttpService>().postFetch("EzFile/Upload", formData, true);
-    print('uploadPost after response');
 
     var baseResponse =
         BaseResponse.fromApi<EzWasSuccessResponse>(response, (response) => EzWasSuccessResponse.fromJson(response));
