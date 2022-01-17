@@ -39,11 +39,14 @@ class BaseHttpService {
   }
 
   Future<Map<String, dynamic>> postFetch(String endpoint, FormData formData, bool requiresAuthed) async {
+    print('before requires auth');
     if (requiresAuthed) {
       /** Application throws exception but does not print it nor stops the application, just gets stuck **/
       try {
+        print('try add sess');
         formData = addSessionOrThrow(formData);
       } catch (e) {
+        print('catching error in add sess');
         print(e);
         return {};
       }
