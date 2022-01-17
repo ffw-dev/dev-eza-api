@@ -50,21 +50,24 @@ class BaseHttpService {
     }
 
     late Response<dynamic> response;
-
+    print('before call');
     try {
+      print('try');
       response = await _dio.post(
         createURL(endpoint),
         data: formData,
       );
       print(response.statusCode);
     } on DioError catch (e) {
+      print('dioError');
       print(e.response);
       throw Exception(
           'Something went wrong and late variable response has not been initialized' + e.response.toString());
     } catch (e) {
-      print('error');
+      print('catch');
       print(e);
     }
+    print('after try catch');
 
     if (response.statusCode != 200) {
       throw Exception('Something went wrong status:' + response.statusCode.toString());
