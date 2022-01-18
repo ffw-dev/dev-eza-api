@@ -57,7 +57,6 @@ class BaseHttpService {
       );
       print(response.statusCode);
     } on DioError catch (e) {
-      print(e.response);
       throw Exception(
           'Something went wrong and late variable response has not been initialized' + e.response.toString());
     } catch (e) {
