@@ -69,8 +69,6 @@ class BaseHttpService {
       throw Exception('Something went wrong status:' + response.statusCode.toString());
     }
 
-    print(response);
-
     var data = response.data;
 
     return Future.value(data);
