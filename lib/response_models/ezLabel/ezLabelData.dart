@@ -11,7 +11,7 @@ class EzData {
   @JsonKey(name: 'Name')
   String? name;
   @JsonKey(name: 'Fields')
-  EzLabelFields? fields;
+  Map<String, String>? fields;
 
   EzData({this.name, this.fields});
 

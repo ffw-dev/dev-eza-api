@@ -8,12 +8,12 @@ part of 'ezLabelData.dart';
 
 EzData _$EzDataFromJson(Map<String, dynamic> json) => EzData(
       name: json['Name'] as String?,
-      fields: json['Fields'] == null
-          ? null
-          : EzLabelFields.fromJson(json['Fields'] as Map<String, dynamic>),
+      fields: (json['Fields'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
     );
 
 Map<String, dynamic> _$EzDataToJson(EzData instance) => <String, dynamic>{
       'Name': instance.name,
-      'Fields': instance.fields?.toJson(),
+      'Fields': instance.fields,
     };
