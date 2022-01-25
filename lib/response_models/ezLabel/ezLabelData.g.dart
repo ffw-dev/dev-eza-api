@@ -8,10 +8,13 @@ part of 'ezLabelData.dart';
 
 EzData _$EzDataFromJson(Map<String, dynamic> json) => EzData(
       name: json['Name'] as String?,
-      fields: json['Fields'] == null ? null : EzLabelFields.fromJson(json['Fields'] as Map<String, dynamic>),
+      fields: (json['Fields'] as List<dynamic>?)
+          ?.map(
+              (e) => EzLabelAdditionalProps.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$EzDataToJson(EzData instance) => <String, dynamic>{
       'Name': instance.name,
-      'Fields': instance.fields?.toJson(),
+      'Fields': instance.fields?.map((e) => e.toJson()).toList(),
     };
