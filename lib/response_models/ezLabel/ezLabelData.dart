@@ -6,16 +6,15 @@ import 'ezLabelAdditionalProps.dart';
 part 'ezLabelData.g.dart';
 
 @JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true)
 class EzData {
   @JsonKey(name: 'Name')
   String? name;
   @JsonKey(name: 'Fields')
-  List<EzLabelAdditionalProps>? fields;
+  EzLabelFields? fields;
 
   EzData({this.name, this.fields});
 
   factory EzData.fromJson(Map<String, dynamic> json) => _$EzDataFromJson(json);
-
-
   Map<String, dynamic> toJson() => _$EzDataToJson(this);
 }
