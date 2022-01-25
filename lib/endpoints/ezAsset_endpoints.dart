@@ -13,6 +13,7 @@ class EzAssetEndpoints {
 
   Future<BaseResponse<EzAsset>> getGet(String identifier) async {
     var response = await getIt<BaseHttpService>().getFetch("EzAsset/Get", {'Id': identifier}, true);
+    print(response);
     var baseResponse = BaseResponse.fromApi<EzAsset>(response, (response) => EzAsset.fromJson(response));
 
     return baseResponse;
