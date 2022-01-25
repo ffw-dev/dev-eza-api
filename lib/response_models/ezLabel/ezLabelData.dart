@@ -16,5 +16,6 @@ class EzData {
 
   factory EzData.fromJson(Map<String, dynamic> json) => _$EzDataFromJson(json);
 
+
   Map<String, dynamic> toJson() => _$EzDataToJson(this);
 }
