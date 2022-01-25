@@ -55,7 +55,7 @@ class BaseHttpService {
         createURL(endpoint),
         data: formData,
       );
-      print(response.statusCode);
+
     } on DioError catch (e) {
       throw Exception(
           'Something went wrong and late variable response has not been initialized' + e.response.toString());
