@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:dev_eza_api/response_models/session.dart';
+import 'package:dev_eza_api/response_parts/error_response_part.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
@@ -57,8 +58,7 @@ class BaseHttpService {
       );
 
     } on DioError catch (e) {
-      throw Exception(
-          'Something went wrong and late variable response has not been initialized' + e.response.toString());
+      throw DevEzaException(ErrorResponsePart.fromJson({"error": "haha"}));
     } catch (e) {
       print(e);
       throw Exception(e);
@@ -86,4 +86,10 @@ class BaseHttpService {
   String createURL(String endpoint) {
     return _dio.options.baseUrl + endpoint;
   }
+}
+
+class DevEzaException {
+  ErrorResponsePart errorResponsePart;
+
+  DevEzaException(this.errorResponsePart);
 }
