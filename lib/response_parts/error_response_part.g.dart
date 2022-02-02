@@ -8,14 +8,14 @@ part of 'error_response_part.dart';
 
 ErrorResponsePart _$ErrorResponsePartFromJson(Map<String, dynamic> json) =>
     ErrorResponsePart(
-      json['fullName'] as String?,
-      json['code'] as int?,
-      json['message'] as String?,
+      json['FullName'] as String?,
+      json['Code'] as int?,
+      json['Message'] as String?,
     );
 
 Map<String, dynamic> _$ErrorResponsePartToJson(ErrorResponsePart instance) =>
     <String, dynamic>{
-      'fullName': instance.fullName,
-      'code': instance.code,
-      'message': instance.message,
+      'FullName': instance.fullName,
+      'Code': instance.code,
+      'Message': instance.message,
     };

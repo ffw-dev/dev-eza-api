@@ -1,5 +1,6 @@
 
 
+import 'package:dev_eza_api/base_http_service.dart';
 import 'package:dev_eza_api/endpoints/authentication_endpoints.dart';
 import 'package:dev_eza_api/endpoints/ezAsset_endpoints.dart';
 import 'package:dev_eza_api/endpoints/ezFile_endpoints.dart';

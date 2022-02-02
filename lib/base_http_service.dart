@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:math';
 
 import 'package:dev_eza_api/response_models/session.dart';
@@ -58,9 +59,8 @@ class BaseHttpService {
       );
 
     } on DioError catch (e) {
-      throw DevEzaException(ErrorResponsePart.fromJson({"error": "haha"}));
+      throw DevEzaException(ErrorResponsePart.fromJson(jsonDecode(e.response.toString())["Error"]));
     } catch (e) {
-      print(e);
       throw Exception(e);
     }
 
