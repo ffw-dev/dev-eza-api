@@ -44,4 +44,7 @@ class DevEzaApi {
   static final EzLabelEndpoints ezLabelEndpoints = getIt<EzLabelEndpoints>();
   static final EzProjectEndpoints ezProjectEndpoints = getIt<EzProjectEndpoints>();
   static final SessionEndpoints sessionEndpoints = getIt<SessionEndpoints>();
+
+  static removeSession() => getIt<BaseHttpService>().session = null;
+  static hasSession() => getIt<BaseHttpService>().session != null;
 }

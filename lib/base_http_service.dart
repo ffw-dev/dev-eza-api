@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:math';
 
 import 'package:dev_eza_api/response_models/session.dart';
 import 'package:dev_eza_api/response_parts/error_response_part.dart';
@@ -26,7 +25,7 @@ class BaseHttpService {
   Future<Map<String, dynamic>> getFetch(String endpoint, Map<String, String> query, bool requiresAuthed) async {
     if (requiresAuthed) {
       if (session == null) {
-        throw Exception("Session doesn't exist");
+        throw DevEzaException(ErrorResponsePart('Inner exception', 0, 'Session does not have any session'));
       } else {
         query.addAll({'sessionGUID': session!.guid});
       }
@@ -34,7 +33,7 @@ class BaseHttpService {
 
     return _dio.get(createURL(endpoint), queryParameters: query).then((response) {
       if (response.statusCode != 200) {
-        throw Exception("Something went wrong at getFetch()");
+        throw DevEzaException(ErrorResponsePart('Status code is not 200', response.statusCode, response.statusMessage ?? 'No message'));
       }
       return response.data as Map<String, dynamic>;
     });
@@ -65,7 +64,7 @@ class BaseHttpService {
     }
 
     if (response.statusCode != 200) {
-      throw Exception('Something went wrong status:' + response.statusCode.toString());
+      throw DevEzaException(ErrorResponsePart('Status code is not 200', response.statusCode, response.statusMessage ?? 'No message'));
     }
 
     var data = response.data;
@@ -75,7 +74,7 @@ class BaseHttpService {
 
   FormData addSessionOrThrow(FormData formData) {
     if (session == null) {
-      throw Exception("Session does not exist.");
+      throw DevEzaException(ErrorResponsePart('Inner exception', 0, 'Session does not have any session'));
     }
 
     formData.fields.add(MapEntry('sessionGUID', session!.guid));
