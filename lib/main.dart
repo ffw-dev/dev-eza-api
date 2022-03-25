@@ -46,8 +46,8 @@ class DevEzaApi {
   static final EzProjectEndpoints ezProjectEndpoints = getIt<EzProjectEndpoints>();
   static final SessionEndpoints sessionEndpoints = getIt<SessionEndpoints>();
 
-  static removeSession() => getIt<BaseHttpService>().session = null;
-  static hasSession() => getIt<BaseHttpService>().session != null;
-  static addSession(Session s) => getIt<BaseHttpService>().session = s;
-  static session() => getIt<BaseHttpService>().session;
+  static void removeSession() => getIt<BaseHttpService>().session = null;
+  static bool hasSession() => getIt<BaseHttpService>().session != null;
+  static void addSession(Session s) => getIt<BaseHttpService>().session = s;
+  static Session? session() => getIt<BaseHttpService>().session;
 }
