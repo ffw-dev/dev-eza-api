@@ -7,6 +7,7 @@ import 'package:dev_eza_api/endpoints/ezFile_endpoints.dart';
 import 'package:dev_eza_api/endpoints/ezLabel_endpoints.dart';
 import 'package:dev_eza_api/endpoints/ezProject_endpoints.dart';
 import 'package:dev_eza_api/endpoints/session_endpoints.dart';
+import 'package:dev_eza_api/response_models/session.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 
@@ -47,4 +48,5 @@ class DevEzaApi {
 
   static removeSession() => getIt<BaseHttpService>().session = null;
   static hasSession() => getIt<BaseHttpService>().session != null;
+  static addSession(Session s) => getIt<BaseHttpService>().session = s;
 }
