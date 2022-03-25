@@ -49,4 +49,5 @@ class DevEzaApi {
   static removeSession() => getIt<BaseHttpService>().session = null;
   static hasSession() => getIt<BaseHttpService>().session != null;
   static addSession(Session s) => getIt<BaseHttpService>().session = s;
+  static session() => getIt<BaseHttpService>().session;
 }
