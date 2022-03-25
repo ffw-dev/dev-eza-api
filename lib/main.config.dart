@@ -15,6 +15,7 @@ import 'endpoints/ezLabel_endpoints.dart' as _i6;
 import 'endpoints/ezProject_endpoints.dart' as _i7;
 import 'endpoints/session_endpoints.dart'
     as _i8; // ignore_for_file: unnecessary_lambdas
+import 'endpoints/user_endpoints.dart' as _i10;
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -33,6 +34,8 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i8.SessionEndpoints(get<_i4.BaseHttpService>()));
   gh.factory<_i9.AuthenticationEndpoints>(
       () => _i9.AuthenticationEndpoints(get<_i4.BaseHttpService>()));
+  gh.factory<_i10.UserEndpoints>(
+          () => _i10.UserEndpoints(get<_i4.BaseHttpService>()));
   gh.singleton<_i4.BaseHttpService>(_i4.BaseHttpService());
   return get;
 }
