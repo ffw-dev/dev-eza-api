@@ -18,13 +18,12 @@ class UserEndpoints {
       "data": jsonEncode({
         "email": email,
         "name": email,
-        "permissions": userPermissionFromEnum(permissions)
       }),
       "password": password,
     });
 
     var response = await getIt<BaseHttpService>().postFetch("User/Set", formData, true);
-    var baseResponse = BaseResponse.fromApi<User>(response, (response) => User.fromJson(response));
+    var baseResponse = BaseResponse.fromApi<EzUser>(response, (response) => EzUser.fromJson(response));
 
     return baseResponse;
   }
