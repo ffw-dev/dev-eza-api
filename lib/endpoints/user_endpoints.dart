@@ -12,7 +12,7 @@ import '../response_parts/base_response.dart';
 class UserEndpoints {
   UserEndpoints(BaseHttpService baseFetch);
 
-  Future<BaseResponse<User>> setUserSet(String email, String password, EzUserPermissions permissions) async {
+  Future<BaseResponse<EzUser>> setUserSet(String email, String password, EzUserPermissions permissions) async {
     FormData formData = FormData.fromMap({
       "data": jsonEncode({
         "email": email,
