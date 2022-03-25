@@ -6,7 +6,6 @@ import 'package:injectable/injectable.dart';
 
 import '../../main.dart';
 import '../base_http_service.dart';
-import '../enums/ezUserEnum.dart';
 import '../response_parts/base_response.dart';
 
 @Injectable()
@@ -22,7 +21,7 @@ class UserEndpoints {
       "password": password,
     });
 
-    var response = await getIt<BaseHttpService>().postFetch("User/Set", formData, true);
+    var response = await getIt<BaseHttpService>().postFetch("EzUser/Set", formData, true);
     var baseResponse = BaseResponse.fromApi<EzUser>(response, (response) => EzUser.fromJson(response));
 
     return baseResponse;
