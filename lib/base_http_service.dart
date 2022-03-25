@@ -60,6 +60,7 @@ class BaseHttpService {
     } on DioError catch (e) {
       throw DevEzaException(ErrorResponsePart.fromJson(jsonDecode(e.response.toString())["Error"]));
     } catch (e) {
+      print(e.toString());
       throw Exception(e);
     }
 
