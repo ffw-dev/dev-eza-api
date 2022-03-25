@@ -6,6 +6,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../main.dart';
 import '../base_http_service.dart';
+import '../enums/ezUserEnum.dart';
 import '../response_parts/base_response.dart';
 
 @Injectable()
@@ -28,20 +29,3 @@ class UserEndpoints {
     return baseResponse;
   }
 }
-
-enum EzUserPermissions {
-  Administrator,
-  Contributor,
-  User
-}
-
-var userPermissionFromEnum = (EzUserPermissions p) {
-  switch(p) {
-    case EzUserPermissions.Administrator:
-      return "Administrator";
-    case EzUserPermissions.Contributor:
-      return "Contributor";
-    case EzUserPermissions.User:
-      return "User";
-  }
-};
