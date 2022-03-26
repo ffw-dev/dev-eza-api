@@ -1,5 +1,4 @@
-import 'package:dev_eza_api/response_models/secure_cookie.dart';
-import 'package:dev_eza_api/response_models/user.dart';
+import 'package:dev_eza_api/response_models/ezAuthToken.dart';
 import 'package:dev_eza_api/response_parts/base_response.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
@@ -42,5 +41,14 @@ class AuthenticationEndpoints {
     var data = response;
 
     return BaseResponse.fromApi(data, (data) => SecureCookie.fromJson(data));
+  }
+
+  Future<BaseResponse<EzAuthToken>> createAuthKey(String name) async {
+    var formData = FormData.fromMap({'name': name});
+
+    var response = await getIt<BaseHttpService>().postFetch("AuthKey/Create", formData, true).then((value) => value);
+    var data = response;
+
+    return BaseResponse.fromApi(data, (data) => EzAuthToken.fromJson(data));
   }
 }
