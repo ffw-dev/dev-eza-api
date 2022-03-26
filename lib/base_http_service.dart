@@ -33,7 +33,8 @@ class BaseHttpService {
 
     return _dio.get(createURL(endpoint), queryParameters: query).then((response) {
       if (response.statusCode != 200) {
-        throw DevEzaException(ErrorResponsePart('Status code is not 200', response.statusCode, response.statusMessage ?? 'No message'));
+        throw DevEzaException(
+            ErrorResponsePart('Status code is not 200', response.statusCode, response.statusMessage ?? 'No message'));
       }
       return response.data as Map<String, dynamic>;
     });
@@ -42,12 +43,7 @@ class BaseHttpService {
   Future<Map<String, dynamic>> postFetch(String endpoint, FormData formData, bool requiresAuthed) async {
     if (requiresAuthed) {
       /** Application throws exception but does not print it nor stops the application, just gets stuck **/
-      try {
-        formData = addSessionOrThrow(formData);
-      } catch (e) {
-        print(e);
-        return {};
-      }
+      formData = addSessionOrThrow(formData);
     }
 
     late Response<dynamic> response;
@@ -56,17 +52,15 @@ class BaseHttpService {
         createURL(endpoint),
         data: formData,
       );
-
     } on DioError catch (e) {
-      print(e.message.toString());
-      print(e.response.toString());
       throw DevEzaException(ErrorResponsePart.fromJson(jsonDecode(e.response.toString())["Error"]));
     } catch (e) {
       throw Exception(e);
     }
 
     if (response.statusCode != 200) {
-      throw DevEzaException(ErrorResponsePart('Status code is not 200', response.statusCode, response.statusMessage ?? 'No message'));
+      throw DevEzaException(
+          ErrorResponsePart('Status code is not 200', response.statusCode, response.statusMessage ?? 'No message'));
     }
 
     var data = response.data;
