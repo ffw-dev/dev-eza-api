@@ -53,7 +53,7 @@ class AuthenticationEndpoints {
   }
 
   Future<BaseResponse<Session>> loginWithAuthKey(String token) async {
-    var response = await getIt<BaseHttpService>().getFetch("AuthKey/Login", {"token": token}, true).then((value) => value);
+    var response = await getIt<BaseHttpService>().getFetch("AuthKey/Login", {"token": token}, false).then((value) => value);
     var baseResponse = BaseResponse.fromApi<Session>(response, (response) => Session.fromJson(response));
 
     getIt<BaseHttpService>().session = baseResponse.body.results[0];
