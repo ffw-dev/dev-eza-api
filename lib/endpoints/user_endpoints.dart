@@ -27,4 +27,11 @@ class UserEndpoints {
 
     return baseResponse;
   }
+
+  Future<BaseResponse<EzUser>> meGet() async {
+    var response = await getIt<BaseHttpService>().getFetch("EzUser/Me", {}, true);
+    var baseResponse = BaseResponse.fromApi<EzUser>(response, (response) => EzUser.fromJson(response));
+
+    return baseResponse;
+  }
 }
