@@ -17,7 +17,7 @@ class UserEndpoints {
       "data": jsonEncode({
         "email": email,
         "name": email,
-        "permission": userPermissionFromEnum(permissions)
+        "permissions": userPermissionFromEnum(permissions)
       }),
       "password": password,
     });
