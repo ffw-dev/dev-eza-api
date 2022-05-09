@@ -25,7 +25,7 @@ class SearchEndpoints {
       required int pageSize}) async {
 
     var response = await getIt<BaseHttpService>().getFetch("EzSearch/Get", {
-      "q": query, "filter": filter, "sort": sort, "tag": tag, "facets": facets, "between": between, "pageIndex": "0", "pageSize": "50"
+      "q": query, "filter": filter, "sort": sort, "tag": tag, "facets": facets, "between": between, "pageIndex": "0", "pageSize": pageSize.toString()
     }, true);
 
     return BaseResponse.fromApi(response, (response) => EzSearchResult.fromJson(response));
